@@ -3,7 +3,7 @@
 
     <ul>
       <li v-for="item in items" :key="item.id">
-        {{ item.name }}
+        {{ item.name }} - {{ item.id }}
       </li>
     </ul>
 
@@ -21,9 +21,10 @@
       <div v-html="`<strong>${count}</strong>`"></div>
       <div v-pre>{{ count }}</div>
 
-      <div v-if="count % 3 === 0"> count % 3 === 0</div>
-      <div v-else-if="count % 2 === 0"> count % 2 === 0</div>
-      <div v-else>Count is not divisible by 2 or 3</div>
+      <div id="div-1" v-if="count % 3 === 0"> count % 3 === 0</div>
+      <div id="div-2" v-else-if="count % 2 === 0"> count % 2 === 0</div>
+      <div id="div-4" v-else-if="count % 5 === 0"> count % 5 === 0</div>
+      <div id="div-3" v-else>Count is not divisible by 2 or 3</div>
 
       <button @click="count++">Increment Count</button>
     </div>

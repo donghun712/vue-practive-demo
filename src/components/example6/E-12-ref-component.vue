@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onBeforeMount, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted } from 'vue';
 
 export default {
   name: 'E12RefComponent',
@@ -23,6 +23,13 @@ export default {
         inputField.value.focus();
       }
     });
+
+    onBeforeMount(() => console.log(inputField)); 
+    onMounted(() => console.log(inputField));
+    onBeforeUpdate(() => console.log(inputField));  
+    onUpdated(() => console.log(inputField));
+    onBeforeUnmount(() => console.log(inputField));
+    onUnmounted(() => console.log(inputField));
 
     return {
       inputField,

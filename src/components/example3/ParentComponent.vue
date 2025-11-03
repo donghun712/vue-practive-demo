@@ -3,6 +3,8 @@
   <div>
     <ChildComponent
         :message="parentMessage"
+        :id="1"
+        :password="1234"
         @custom-event="handleEvent"
     />
   </div>

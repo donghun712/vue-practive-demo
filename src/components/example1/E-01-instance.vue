@@ -6,8 +6,9 @@
 export default {
   name: "E01Instance",
   data() {
+    const name = 'Dong hun Kim'
     return {
-      message: "Vue!"
+      message: name,
     };
   }
 };
