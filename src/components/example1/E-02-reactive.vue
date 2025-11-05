@@ -2,37 +2,41 @@
   <div>{{ fullName }}</div>
 </template>
 
-<script>
-export default {
-  name: "E02Reactive",
-  data() {
+<script lang="ts">
+import { defineComponent, ref, computed, onMounted } from 'vue'
+
+export default defineComponent({
+  name: 'E02Reactive',
+  setup() {
+    const firstName = ref('Donghun')
+    const lastName = ref('Kim')
+
+    const fullName = computed(() => firstName.value + ' ' + lastName.value)
+
+    onMounted(() => {
+      console.log('mounted')
+
+      let a = 10
+
+      setTimeout(() => {
+        a = 20
+        console.log(a)
+      }, 500)
+
+      setTimeout(() => {
+        lastName.value = '123'
+      }, 1000)
+
+      setTimeout(() => {
+        firstName.value = 'KDH'
+      }, 2000)
+    })
+
     return {
-      firstName: "Donghun",
-      lastName: "Kim"
-    };
-  },
-  mounted() {
-
-    console.log('mounted');
-
-    let a = 10;
-
-    setTimeout(() => {
-      a = 20;
-      console.log(a);
-    }, 500);
-    setTimeout(() => {
-      this.lastName = "123";
-    }, 1000);
-
-    setTimeout(() => {
-      this.firstName = "KDH";
-    }, 2000);
-  },
-  computed: {
-    fullName() {
-      return this.firstName + " " + this.lastName;
+      firstName,
+      lastName,
+      fullName
     }
   }
-};
+})
 </script>

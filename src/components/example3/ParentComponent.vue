@@ -1,32 +1,35 @@
-<!-- ParentComponent.vue -->
 <template>
   <div>
     <ChildComponent
-        :message="parentMessage"
-        :id="1"
-        :password="1234"
-        @custom-event="handleEvent"
+      :message="parentMessage"
+      :id="1"
+      :password="1234"
+      @custom-event="handleEvent"
     />
   </div>
 </template>
 
-<script>
-import ChildComponent from './ChildComponent.vue';
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
+import ChildComponent from './ChildComponent.vue'
 
-export default {
-  name: "E05ParentComponent",
-  data() {
-    return {
-      parentMessage: 'Hello from parent'
-    };
-  },
-  methods: {
-    handleEvent(payload) {
-      console.log(payload);
-    }
-  },
+export default defineComponent({
+  name: 'E05ParentComponent',
   components: {
     ChildComponent
+  },
+  setup() {
+    const parentMessage = ref('Hello from parent')
+    
+    // methods는 setup에서 함수로 정의
+    const handleEvent = (payload: any) => {
+      console.log(payload)
+    }
+
+    return {
+      parentMessage,
+      handleEvent
+    }
   }
-};
+})
 </script>

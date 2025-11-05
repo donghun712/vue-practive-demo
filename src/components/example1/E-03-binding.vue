@@ -1,21 +1,32 @@
 <template>
   <div>
-    <input v-model="id"/>
-    <input v-model="password"/>
+    <input v-model="id" />
+    <input v-model="password" />
     <p>{{ message }}</p>
-    <button @click="() => { this.message = id + ' ' + this.password}">whoami</button>
+    <button @click="whoami">whoami</button>
   </div>
 </template>
 
-<script>
-export default {
-  name: "E03Binding",
-  data() {
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
+
+export default defineComponent({
+  name: 'E03Binding',
+  setup() {
+    const message = ref('Hello Vue')
+    const id = ref('')
+    const password = ref('')
+
+    const whoami = () => {
+      message.value = id.value + ' ' + password.value
+    }
+
     return {
-      message: "Hello Vue",
-      id: ' ',
-      passwordL : ' '
-    };
+      message,
+      id,
+      password,
+      whoami
+    }
   }
-};
+})
 </script>

@@ -5,36 +5,28 @@
   </div>
 </template>
 
-<script>
-import { ref, onMounted, onBeforeMount, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted } from 'vue';
+<script setup>
+import { ref, onMounted, onBeforeMount, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted } from 'vue'
 
-export default {
-  name: 'E12RefComponent',
-  setup() {
-    const inputField = ref(null); // DOM 요소에 대한 ref 선언
+const inputField = ref(null)
 
-    const focusInput = () => {
-      inputField.value.focus(); // ref를 통해 DOM 요소에 접근
-    };
-
-    onMounted(() => {
-      console.log(inputField); // 컴포넌트가 마운트된 후, inputField에 접근 가능
-      if(inputField.value) {
-        inputField.value.focus();
-      }
-    });
-
-    onBeforeMount(() => console.log(inputField)); 
-    onMounted(() => console.log(inputField));
-    onBeforeUpdate(() => console.log(inputField));  
-    onUpdated(() => console.log(inputField));
-    onBeforeUnmount(() => console.log(inputField));
-    onUnmounted(() => console.log(inputField));
-
-    return {
-      inputField,
-      focusInput
-    };
+const focusInput = () => {
+  if (inputField.value) {
+    inputField.value.focus()
   }
-};
+}
+
+onMounted(() => {
+  console.log(inputField)
+  if(inputField.value) {
+    inputField.value.focus()
+  }
+})
+
+onBeforeMount(() => console.log(inputField))
+onMounted(() => console.log(inputField))
+onBeforeUpdate(() => console.log(inputField))
+onUpdated(() => console.log(inputField))
+onBeforeUnmount(() => console.log(inputField))
+onUnmounted(() => console.log(inputField))
 </script>

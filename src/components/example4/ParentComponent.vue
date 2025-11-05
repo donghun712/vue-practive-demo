@@ -10,7 +10,7 @@
 import ChildComponent1 from "@/components/example4/ChildComponent1.vue";
 
 export default {
-  name: "E06ParentComponent",
+  name: 'E06ParentComponent',
   provide() {
     return {
       sharedMessage: 'Hello from provide'

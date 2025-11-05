@@ -10,7 +10,6 @@ import E12RefComponent from './components/example6/E-12-ref-component.vue';
 
 
 
-
 export default defineComponent({
   name: 'App',
     components: {
