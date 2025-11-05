@@ -1,6 +1,18 @@
 # Vue2 → Vue3 변경 요약
 
-Vue 2의 Options API에서 Vue 3의 Composition API로 변경하는 핵심 사항을 정리한 가이드입니다.
+Vue 2의 Options API에서 Vue 3의 Composition API로 변경한 핵심 사항을 정리한 가이드입니다.
+
+---
+
+## 📋 핵심 API 변경 요약
+
+| 항목 | Vue 2 | Vue 3 |
+|------|-------|-------|
+| 반응형 데이터 | `data()` | `ref()` / `reactive()` |
+| 계산 속성 | `computed` | `computed()` |
+| 메서드 | `methods` | `setup()` 내 함수 |
+| 라이프사이클 | `mounted()` | `onMounted()` |
+| 값 접근 | `this.property` | `property.value` |
 
 ---
 
@@ -169,18 +181,6 @@ Vue 2의 Options API에서 Vue 3의 Composition API로 변경하는 핵심 사�
 - 반환(`return`) 및 `export default` 블록 없음
 
 ![E12](./images/E12.png)
-
----
-
-## 📋 핵심 API 변경 요약
-
-| 항목 | Vue 2 | Vue 3 |
-|------|-------|-------|
-| 반응형 데이터 | `data()` | `ref()` / `reactive()` |
-| 계산 속성 | `computed` | `computed()` |
-| 메서드 | `methods` | `setup()` 내 함수 |
-| 라이프사이클 | `mounted()` | `onMounted()` |
-| 값 접근 | `this.property` | `property.value` |
 
 ---
 
